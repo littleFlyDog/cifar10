@@ -18,3 +18,5 @@ def predict_kaggle(model,test_iter,train_ds, len,device):
     df = pd.DataFrame({'id': sorted_ids, 'label': preds})
     df['label'] = df['label'].apply(lambda x: train_ds.classes[x])
     df.to_csv('submission.csv', index=False)
+
+def predict_myimg(model,img_tensor,train_ds,device):

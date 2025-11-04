@@ -5,7 +5,7 @@ from torch import nn
 import torchvision
 from data import load_dataloader_1,load_dataloader_2, reorg_cifar10_data
 from train import train
-from predict import predict_kaggle
+from predict import predict_kaggle,predict_myimg
 #超参数设置
 num_epochs=100 #30
 batch_size=64 #128
@@ -60,5 +60,12 @@ if __name__ == "__main__":
         test_iter=test_iter,
         train_ds=train_ds,
         len=300000,
+        device=device
+    )
+
+    predict_myimg(
+        model=model,
+        img_tensor=img_tensor,
+        train_ds=train_ds,
         device=device
     )
