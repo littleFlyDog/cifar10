@@ -3,6 +3,7 @@ logs/
 train_valid_test/
 *.pth
 *.csv
+myimg/
 # Created by https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,visualstudiocode,python
 

@@ -35,6 +35,8 @@ scheduler = torch.optim.lr_scheduler.StepLR(trainer, lr_period, lr_decay)
 data_dir='./train_valid_test'
 # reorg_cifar10_data(data_dir, valid_ratio)
 if __name__ == "__main__":
+
+
     # # train_iter, valid_iter, train_valid_iter,test_iter=load_dataloader(data_dir, batch_size)
     # train_iter, valid_iter=load_dataloader_1(data_dir, batch_size)
     # #--------------------开始训练--------------------
@@ -48,24 +50,37 @@ if __name__ == "__main__":
     #     trainer=trainer, 
     #     scheduler=scheduler
     # )
+
+
+
+
+
+
+
+
+
+
+    #--------------------开始预测kaggle--------------------
+#     model.load_state_dict(torch.load('./best_model.pth'))
+# #net, train_iter, valid_iter, num_epochs, device, loss, trainer, scheduler
+#     train_iter, valid_iter,test_iter,train_ds=load_dataloader_2(data_dir, batch_size)
+#     predict_kaggle(
+#         model=model,
+#         test_iter=test_iter,
+#         train_ds=train_ds,
+#         len=300000,
+#         device=device
+#     )
+
+
+
+
+
+    #--------------------开始预测单张图片--------------------
     model.load_state_dict(torch.load('./best_model.pth'))
-#net, train_iter, valid_iter, num_epochs, device, loss, trainer, scheduler
-
-
-
-    #--------------------开始预测--------------------
-    train_iter, valid_iter,test_iter,train_ds=load_dataloader_2(data_dir, batch_size)
-    predict_kaggle(
-        model=model,
-        test_iter=test_iter,
-        train_ds=train_ds,
-        len=300000,
-        device=device
-    )
-
+    img_path='./myimg/test6.jpg'
     predict_myimg(
+        img_path=img_path,
         model=model,
-        img_tensor=img_tensor,
-        train_ds=train_ds,
         device=device
     )
